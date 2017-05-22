@@ -1,0 +1,9 @@
+<div class="link-form"> <h1>Add a New link</h1>
+  <%= form_for :link do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+    <%= f.submit "Submit", class: "btn btn-color" %>
+    <% end %>
+</div>
