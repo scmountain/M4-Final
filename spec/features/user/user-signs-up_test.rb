@@ -7,6 +7,13 @@ RSpec.describe "As unauthenticated user" do
     fill_in "Email", with: "BillytheGoat@example.com"
     fill_in "Name", with: "janedoe"
     fill_in "Password", with: "password"
-    fill_in "Password confirmation", with: "password" :
+    fill_in "Password confirmation", with: "password"
+
+    within('.sign-up') do
+      click_on "Sign Up"
+    end
+    expect(current_path).to eq(root_path)
+
+    expect(page).to have_content("Logged in as janedoe")
   end
 end
