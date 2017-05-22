@@ -7,6 +7,6 @@ class ApplicationController < ActionController::Base
   end
 
   def check_registered_user
-    redirect_to login_path if !current_user
+    redirect_to signup_path if !current_user
   end
 end
