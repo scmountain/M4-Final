@@ -1,0 +1,9 @@
+<div class="login-form"> <h1>Log In</h1>
+  <%= form_for :session, url: login_path do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%= f.submit "Login", class: "btn btn-color" %>
+    <% end %>
+</div>
