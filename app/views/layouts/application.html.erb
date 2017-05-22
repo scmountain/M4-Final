@@ -8,6 +8,15 @@
 </head>
 <body>
 <div class="container">
+  <% flash.each do |type, message| %>
+        <% if type == "success" %>
+          <%= content_tag :div, sanitize(message), class:"alert-success" %>
+        <% elsif type == "danger" %>
+          <%= content_tag :div, sanitize(message), class:"alert-danger" %>
+        <% else %>
+          <%= content_tag :div, sanitize(message), class:"type" %>
+        <% end %>
+      <% end %>
   <% if current_user %>
   Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
 <% else %>
