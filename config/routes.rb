@@ -8,4 +8,5 @@ Rails.application.routes.draw do
       resources :links, only: [:update]
     end
   end
+  get      '/login',    to: 'sessions#new', as: "login"
 end
