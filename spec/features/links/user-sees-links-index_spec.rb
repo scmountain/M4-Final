@@ -8,6 +8,7 @@ RSpec.describe "As an user" do
 
   allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
+
   visit root_path
 
     within('.link-form') do
@@ -16,6 +17,7 @@ RSpec.describe "As an user" do
       click_on "Submit"
     end
 
-    
+    expect(current_path).to eq(root_path)
+
   end
 end
