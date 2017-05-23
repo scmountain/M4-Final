@@ -18,6 +18,5 @@ RSpec.describe "As an user" do
     end
 
     expect(current_path).to eq(root_path)
-
   end
 end

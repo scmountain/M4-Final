@@ -7,3 +7,10 @@
     <%= f.submit "Submit", class: "btn btn-color" %>
     <% end %>
 </div>
+
+<h2>My links</h2>
+<% @links.each do |link| %>
+  <div id="link-info"><%= link.title %><br>
+  <%= link.url %><br>
+  <%= link.read %><br><br></div>
+<% end %>

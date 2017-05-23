@@ -2,6 +2,7 @@ class LinksController < ApplicationController
   before_action :check_registered_user
 
   def index
+    @links = Link.all
   end
 
   def create
