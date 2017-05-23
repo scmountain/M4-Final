@@ -2,11 +2,12 @@ class LinksController < ApplicationController
   before_action :check_registered_user
 
   def index
-    @links = Link.all
+    @links = Link.where(["user_id = ?","#{current_user.id}"])
   end
 
   def create
-    link = Link.new(link_params)
+    user = current_user
+    link = user.links.new(link_params)
     if link.save
       flash[:notice] = "Link #{link.title} created!"
       redirect_to root_path
