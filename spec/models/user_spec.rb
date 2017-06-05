@@ -1,5 +1,18 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "secure password" do
+      it { should have_secure_password }
+    end
+
+  context "relationships" do
+    it { should have_many :links }
+  end
+
+  context "validations" do
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:email) }
+    it { should validate_presence_of(:password) }
+    it { should validate_uniqueness_of(:email) }
+  end
 end
