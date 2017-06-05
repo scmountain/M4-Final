@@ -5,9 +5,6 @@ Production link = LINKHERE
 The app allows a user to authenticate, then create a list of links that is dynamic to each user.
 Each user is allowed to mark the links as read/un-read, these click events trigger an API send to 
 
-### Testing your JS with Selenium
-
-The app has the `selenium-webdriver` gem listed in the `Gemfile` and setup in the `rails_helper.rb`
 
 #### Setup
 ```$ git clone https://github.com/scmountain/M4-Final.git ```<br>
