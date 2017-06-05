@@ -1,8 +1,9 @@
 <div class="link-info">
   <%= link.title %><br>
   <%= link.url %><br>
-  <%= link.read %><br>
-
+  <div class="read-status">
+    <%= link.read %><br>
+  </div>
   <%= link_to "Edit", edit_link_path(link) %>
   <div id="<%= link.id %>" class="mark-as-read">
     <% if link.read == false %>
