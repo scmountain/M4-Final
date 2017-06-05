@@ -17,7 +17,7 @@ class LinksController < ApplicationController
       redirect_to root_path
     else
       flash[:error] = format_errors(@link.errors.full_messages)
-      render :edit
+      redirect_to edit_link_path(@link)
     end
 end
 
