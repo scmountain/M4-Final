@@ -1,8 +1,8 @@
 $( document ).ready(function(){
-  $("body").on("click", ".mark-as-read", markAsRead)
+  $("body").on("click", ".mark-as-read", markAsUnRead)
 })
 
-function markAsRead(e) {
+function markAsUnRead(e) {
   e.preventDefault();
 
   var linkId = $(this).parents('#link-list').context.id
@@ -11,12 +11,13 @@ function markAsRead(e) {
   $.ajax({
     type: "PUT",
     url: "/api/v1/links/" + linkId,
-    data: { read: true },
+    data: { read: false },
   }).then(updateLinkStatus)
     .fail(displayFailure);
 }
 
 function updateLinkStatus(link) {
+  debugger
 
   $(`#link-list[data-link-id=${link.id}]`).find(".read-status").text(link.read);
 }

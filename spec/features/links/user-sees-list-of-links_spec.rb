@@ -21,7 +21,7 @@ RSpec.describe "As an user" do
 
     expect(current_path).to eq(root_path)
 
-    within all('#link-info')[0] do
+    within all('#links-list')[0] do
       expect(page).to have_content("youtube")
       expect(page).to have_content("http://www.youtube.com")
       expect(page).to have_content("false")
