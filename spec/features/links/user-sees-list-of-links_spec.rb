@@ -6,7 +6,7 @@ RSpec.describe "As an user" do
                       email: "BillytheGoat@example.com",
                     password: "password")
 
-    link = Link.create(title: "youtube", url: "www.youtube.com")
+    link = Link.create(title: "youtube", url: "http://www.youtube.com")
 
   allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
@@ -23,13 +23,13 @@ RSpec.describe "As an user" do
 
     within all('#link-info')[0] do
       expect(page).to have_content("youtube")
-      expect(page).to have_content("www.youtube.com")
+      expect(page).to have_content("http://www.youtube.com")
       expect(page).to have_content("false")
     end
 
     within all('#link-info')[1] do
       expect(page).to have_content("Gmail")
-      expect(page).to have_content("mail.google.com")
+      expect(page).to have_content("http://mail.google.com")
       expect(page).to have_content("false")
     end
   end
