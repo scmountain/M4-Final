@@ -7,8 +7,13 @@
 </form>
 
 <h2>My links</h2>
+<div id="search-box">
+  <input>
+</div>
 <div id="links-list">
   <% @links.each do |link| %>
-  <%= render partial: '/links/new', locals: {link: link} %>
+  <div class='link'>
+    <%= render partial: '/links/new', locals: {link: link} %>
+  </div>
   <% end %>
 </div>

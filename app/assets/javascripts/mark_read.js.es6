@@ -31,7 +31,6 @@ function markAsUnRead(e) {
 }
 
 function updateLinkStatus(link) {
-  debugger
 
   $(`#link-list[data-link-id=${link.id}]`).find(".read-status").text(link.read);
 }
