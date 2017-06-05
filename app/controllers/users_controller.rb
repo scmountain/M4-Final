@@ -10,13 +10,16 @@ class UsersController < ApplicationController
       redirect_to '/'
       flash[:notice] = "Logged in as #{user.name}"
     else
+      flash[:error] = format_errors(user.errors.full_messages)
       redirect_to '/signup'
-      flash[:error] = "Must have valid name, email, and password"
     end
+end
+
+private
+
+  def format_errors(errors)
+    errors.reduce(:+)
   end
-
-
-  private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
