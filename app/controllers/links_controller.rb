@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
   before_action :check_registered_user
-  skip_before_filter :verify_authenticity_token, :only => [:create]
+
   def index
     @links = current_user.links
   end
@@ -10,14 +10,14 @@ class LinksController < ApplicationController
   end
 
   def update
-    @link = Link.find(params[:id])
-    @link.update_attributes(link_params)
-    if @link.save
-      flash[:notice] = "Link #{@link.title} updated!"
+    link = Link.find(params[:id])
+    link.update_attributes(link_params)
+    if link.save
+      flash[:notice] = "Link #{link.title} updated!"
       redirect_to root_path
     else
-      flash[:error] = format_errors(@link.errors.full_messages)
-      redirect_to edit_link_path(@link)
+      flash[:error] = format_errors(link.errors.full_messages)
+      redirect_to edit_link_path(link)
     end
 end
 
