@@ -2,19 +2,6 @@ $( document ).ready(function(){
   $("body").on("click", ".mark-as-unread", markAsUnRead)
 })
 
-function markAsRead(e) {
-  e.preventDefault();
-
-  var linkId = $(this).parents('#link-list').context.id
-
-
-  $.ajax({
-    type: "PATCH",
-    url: "/api/v1/links/" + linkId,
-    data: { read: true },
-  }).then(updateLinkStatus)
-    .fail(displayFailure);
-}
 function markAsUnRead(e) {
   e.preventDefault();
 
@@ -24,7 +11,7 @@ function markAsUnRead(e) {
   $.ajax({
     type: "PUT",
     url: "/api/v1/links/" + linkId,
-    data: { read: true },
+    data: { read: false },
   }).then(updateLinkStatus)
     .fail(displayFailure);
 }
