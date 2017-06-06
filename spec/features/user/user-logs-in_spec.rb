@@ -17,6 +17,6 @@ RSpec.describe "As an user" do
     end
     expect(current_path).to eq(root_path)
 
-    expect(page).to have_content("Logged in as janedoe")
+    expect(page).to have_content("Signed in as janedoe")
   end
 end
