@@ -1,23 +1,28 @@
+<body style="background-color:powderblue;">
+<fieldset>
+  <legend>New Link</legend>
 <form id="link-create">
-  Title: <input type="text" name="title" id="link-title"><br>
+  Title: <input type="text" name="title" id="link-title"><br><br>
   URL: <input type="text" name="url" id="link-url"><br><br>
   <input type="button" value="Create Link" id="link-submit">
   <input type="hidden" name="user_id" value="<%= current_user.id  %>" id="user-id"><br>
   <input type="hidden" name="read" value=false id="link-read"><br>
 </form>
+</fieldset>
 
 <h2>My links</h2>
 <div id="search-box">
   <input>
 </div>
 <button type="button" id="read-btn">Read Only</button>
-<button type="button" id="unread-btn">Unread Only</button>
-<button type="button" id="show-all-btn">Show All</button>
+<button type="button" id="unread-btn">Unread Only</button><br><br>
 
 <div id="links-list">
   <% @links.each do |link| %>
+  <fieldset>
   <div class='link'>
     <%= render partial: '/links/new', locals: {link: link} %>
   </div>
+</fieldset>
   <% end %>
 </div>
