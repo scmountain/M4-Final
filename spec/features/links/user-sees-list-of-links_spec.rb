@@ -10,7 +10,7 @@ RSpec.describe "As an user", :js => :true do
 
   allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-
+hawt-reads.herokuapp.com/links
   visit root_path
 
   within('#link-create') do

@@ -15,7 +15,7 @@ function markAsRead(e) {
   }).then(function(link){
     return $.ajax({
       type: "POST",
-      url: "http://localhost:9876/links",
+      url: "http://hawt-reads.herokuapp.com/links",
       data: { url: link.url},
     })
   })
