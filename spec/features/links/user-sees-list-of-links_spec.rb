@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "As an user" do
+RSpec.describe "As an user", :js => :true do
   scenario "I see all of my links" do
     user = User.create(name: "janedoe",
                       email: "BillytheGoat@example.com",
@@ -13,21 +13,19 @@ RSpec.describe "As an user" do
 
   visit root_path
 
-    within('.link-form') do
-      fill_in "link[title]", with: "Gmail"
-      fill_in "link[url]", with: "http://mail.google.com"
-      click_on "Submit"
-    end
+  within('#link-create') do
+    fill_in "link-title", with: "Gmail"
+    fill_in "link-url", with: "http://mail.google.com"
+    click_on "Create Link"
+  end
+
+  wait = Selenium::WebDriver::Wait.new ignore: Selenium::WebDriver::Error::NoAlertPresentError
+     alert = wait.until { page.driver.browser.switch_to.alert }
+     alert.accept
 
     expect(current_path).to eq(root_path)
 
     within all('#links-list')[0] do
-      expect(page).to have_content("youtube")
-      expect(page).to have_content("http://www.youtube.com")
-      expect(page).to have_content("false")
-    end
-
-    within all('#link-info')[1] do
       expect(page).to have_content("Gmail")
       expect(page).to have_content("http://mail.google.com")
       expect(page).to have_content("false")
