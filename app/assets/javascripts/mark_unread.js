@@ -1,4 +1,6 @@
-
+$( document ).ready(function(){
+  $("body").on("click", ".mark-as-read", markAsUnRead)
+})
 
 function markAsUnRead(e) {
   e.preventDefault();
@@ -12,4 +14,4 @@ function markAsUnRead(e) {
     data: { read: false },
   }).then(updateLinkStatus)
     .fail(displayFailure);
-};
+}

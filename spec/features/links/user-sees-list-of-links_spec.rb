@@ -6,7 +6,7 @@ RSpec.describe "As an user", :js => :true do
                       email: "BillytheGoat@example.com",
                     password: "password")
 
-    link = Link.create(title: "youtube", url: "http://www.youtube.com")
+    user.links.create(title: "youtube", url: "http://www.youtube.com")
 
   allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
@@ -24,6 +24,12 @@ RSpec.describe "As an user", :js => :true do
      alert.accept
 
     expect(current_path).to eq(root_path)
+
+    within all('#links-list')[0] do
+      expect(page).to have_content("youtube")
+      expect(page).to have_content("http://www.youtube.com")
+      expect(page).to have_content("false")
+    end
 
     within all('#links-list')[0] do
       expect(page).to have_content("Gmail")
