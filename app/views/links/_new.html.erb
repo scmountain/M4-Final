@@ -1,16 +1,18 @@
 <div class="link-info">
   <%= link.title %><br>
   <%= link.url %><br>
-  <div class="read-status">
+  <div id="<%= link.id %>">
     <%= link.read %><br>
   </div>
-  <%= link_to "Edit", edit_link_path(link) %>
-  <div id="<%= link.id %>" class="mark-as-read">
-    <% if link.read == false %>
+  <% if link.read == false %>
+    <div id="<%= link.id %>" url="<%= link.url %>"class="mark-as-read">
       <%= link_to "Mark as Read"%>
-    <% else %>
+    <% end%>
+      <% if link.read == true %>
+        <div id="<%= link.id %>" class="mark-as-unread">
       <%= link_to "Mark as Un-Read"%>
-    <% end %>
+    <% end %><br>
+    <%= link_to "Edit", edit_link_path(link) %>
   <br><br>
   </div>
 </div>

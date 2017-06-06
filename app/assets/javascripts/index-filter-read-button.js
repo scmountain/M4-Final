@@ -1,14 +1,14 @@
 $(document).ready(function(){
-  searchFilter()
+  readFilter()
 });
 
-function searchFilter(){
-  $('#search-box input').on("keyup", function(){
+function readFilter(){
+  $('#read-btn').on("click", function(){
     $('.link-info').show()
-    var searchValue = $(this).val()
     var links = $('.link-info')
     links.each(function(){
-      var matchingSearch = $(this).text().includes(searchValue)
+
+      var matchingSearch = $(this).text().includes("true")
       if(!matchingSearch) {
         $(this).hide();
       }

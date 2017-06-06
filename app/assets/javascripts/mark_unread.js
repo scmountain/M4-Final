@@ -15,13 +15,3 @@ function markAsUnRead(e) {
   }).then(updateLinkStatus)
     .fail(displayFailure);
 }
-
-function updateLinkStatus(link) {
-  debugger
-
-  $(`#link-list[data-link-id=${link.id}]`).find(".read-status").text(link.read);
-}
-
-function displayFailure(failureData){
-  console.log("FAILED attempt to update Link: " + failureData.responseText);
-}
