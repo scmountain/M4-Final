@@ -1,11 +1,11 @@
 <div class="link-info">
   <%= link.title %><br>
   <%= link.url %><br>
-  <div class="read-status">
+  <div id="<%= link.id %>">
     <%= link.read %><br>
   </div>
   <% if link.read == false %>
-    <div id="<%= link.id %>" class="mark-as-read">
+    <div id="<%= link.id %>" url="<%= link.url %>"class="mark-as-read">
       <%= link_to "Mark as Read"%>
     <% end%>
       <% if link.read == true %>
