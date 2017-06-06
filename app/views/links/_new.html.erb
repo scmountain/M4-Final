@@ -4,13 +4,15 @@
   <div class="read-status">
     <%= link.read %><br>
   </div>
-  <%= link_to "Edit", edit_link_path(link) %>
-  <div id="<%= link.id %>" class="mark-as-read">
-    <% if link.read == false %>
+  <% if link.read == false %>
+    <div id="<%= link.id %>" class="mark-as-read">
       <%= link_to "Mark as Read"%>
-    <% else %>
+    <% end%>
+      <% if link.read == true %>
+        <div id="<%= link.id %>" class="mark-as-unread">
       <%= link_to "Mark as Un-Read"%>
-    <% end %>
+    <% end %><br>
+    <%= link_to "Edit", edit_link_path(link) %>
   <br><br>
   </div>
 </div>

@@ -19,6 +19,7 @@ class LinksController < ApplicationController
       flash[:error] = format_errors(link.errors.full_messages)
       redirect_to edit_link_path(link)
     end
+    
 end
 
 
