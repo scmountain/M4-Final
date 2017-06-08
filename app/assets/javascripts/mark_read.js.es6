@@ -13,29 +13,24 @@ function markAsRead(e) {
     url: "/api/v1/links/" + linkId,
     data: { read: true },
   }).then(function(link){
-    return $.ajax({
-      type: "POST",
-      url: "http://the-hawt-reads.herokuapp.com/links",
-      data: { url: link.url},
-    })
+    sendHawt(link);
+    updateLinkTrue(link);
+    updateBtnUnread(link);
   })
-    .fail(displayFailure);
-};
-
-function updateLinkStatus(link) {
-  var oldText = $(`#${link.id}`)[0].innerText
-  oldText.relpace(link.read)
 }
 
-function displayFailure(failureData){
-  console.log("FAILED attempt to update Link: " + failureData.responseText);
+function updateLinkTrue(link) {
+  $(`#${link.id}`)[0].innerText = true
 }
 
 function sendHawt(link){
-
   $.ajax({
     type: "POST",
-    url: "http://localhost:9876/links" + linkId,
-    data: { url: link.url },
+    url: "http://localhost:9876/links",
+    data: { url: link.url},
   })
+}
+function updateBtnUnread(link){
+  $(`#${link.id}`)[0].nextElementSibling.className ="mark-as-unread"
+  $(`#${link.id}`)[0].childNodes[0].parentNode.nextSibling.nextSibling.value = "Mark as Unread"
 }
