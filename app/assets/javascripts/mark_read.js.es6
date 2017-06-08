@@ -26,7 +26,7 @@ function updateLinkTrue(link) {
 function sendHawt(link){
   $.ajax({
     type: "POST",
-    url: "http://localhost:9876/links",
+    url: "https://the-hawt-reads.herokuapp.com/links",
     data: { url: link.url},
   })
 }
