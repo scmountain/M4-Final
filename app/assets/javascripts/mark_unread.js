@@ -12,6 +12,15 @@ function markAsUnRead(e) {
     type: "PUT",
     url: "/api/v1/links/" + linkId,
     data: { read: false },
-  }).then(updateLinkStatus)
-    .fail(displayFailure);
+  }).then(function(link){
+    updateLinkFalse(link);
+    updateBtnRead(link);
+  })
+}
+function updateLinkFalse(link) {
+  $(`#${link.id}`)[0].innerText = false
+}
+function updateBtnRead(link){
+  $(`#${link.id}`)[0].nextElementSibling.className ="mark-as-read"
+  $(`#${link.id}`)[0].childNodes[0].parentNode.nextSibling.nextSibling.value = "Mark as Read"
 }
