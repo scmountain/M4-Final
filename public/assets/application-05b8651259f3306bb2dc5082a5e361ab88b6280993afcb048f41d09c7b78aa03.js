@@ -11680,7 +11680,7 @@ function updateLinkTrue(link) {
 function sendHawt(link) {
   $.ajax({
     type: "POST",
-    url: "http://localhost:9876/links",
+    url: "https://frozen-headland-51906.herokuapp.com/links",
     data: { url: link.url }
   });
 }
